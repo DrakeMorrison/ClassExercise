@@ -47,7 +47,7 @@ namespace Collection
             planetList.Remove("Pluto");
         }
 
-        static void Main()
+        static void FamilyDictionary()
         {
             Dictionary<string, Dictionary<string, string>> myFamily = new Dictionary<string, Dictionary<string, string>>();
 
@@ -68,6 +68,119 @@ namespace Collection
                 Console.WriteLine(domString);
 
             }
+
+            Console.ReadLine();
+        }
+
+        public void KillNickelback()
+        {
+            var goodSongs = new List<Song>();
+            var allSongs = new HashSet<Song>();
+
+            allSongs.Add(new Song("Nickelback", "How you remind me"));
+            allSongs.Add(new Song("Nickelback", "Far Away"));
+            allSongs.Add(new Song("Nickelback", "Rockstar"));
+            allSongs.Add(new Song("Nickelback", "Photograph"));
+            allSongs.Add(new Song("Breaking Benjamin", "The Diary of Jane"));
+            allSongs.Add(new Song("Breaking Benjamin", "I Will Not Bow"));
+            allSongs.Add(new Song("Breaking Benjamin", "Angels Fall"));
+
+            foreach (Song track in allSongs)
+            {
+                if (track.Artist != "Nickelback")
+                {
+                    goodSongs.Add(track);
+                }
+            }
+
+            foreach (Song track in goodSongs)
+            {
+                Console.WriteLine($"{track.Artist}, {track.Name}");
+            }
+
+            Console.ReadLine();
+        }
+
+        public void HashSets()
+        {
+            var showRoom = new HashSet<string>();
+
+            showRoom.Add("Tesla");
+            showRoom.Add("Prius");
+            showRoom.Add("Lambo");
+            showRoom.Add("Corvette");
+
+            Console.WriteLine($"There are {showRoom.Count} cars in the showroom.");
+
+            showRoom.Add("Corvette");
+
+            Console.WriteLine($"There are {showRoom.Count} cars in the showroom.");
+
+            var usedLot = new HashSet<string>()
+            {
+                "Porsche",
+                "SmartCar"
+            };
+
+            showRoom.UnionWith(usedLot);
+            showRoom.Remove("SmartCar");
+
+            var junkyard = new HashSet<string>()
+            {
+                "Porsche",
+                "Prius",
+                "Jaguar",
+                "Audi v8"
+            };
+
+            showRoom.IntersectWith(junkyard);
+            showRoom.UnionWith(junkyard);
+
+            foreach (string showCar in showRoom)
+            {
+                Console.WriteLine(showCar);
+            }
+
+
+            Console.ReadLine();
+        }
+
+        public class Song
+        {
+            public string Artist { get; set; }
+            public string Name { get; set; }
+
+            public Song(string artist, string name)
+            {
+                Artist = artist;
+                Name = name;
+            }
+        }
+
+        static void Main()
+        {
+            var transactions = new List<(string, double, int)>();
+
+            transactions.Add(("product1", 10.23, 3));
+            transactions.Add(("product2", 11.50, 2));
+            transactions.Add(("product3", 12.76, 1));
+            transactions.Add(("product4", 13.56, 2));
+            transactions.Add(("product5", 14.43, 3));
+
+            var itemsSold = 0;
+            var revenue = 0.0;
+
+            foreach ((string product, double amount, int quantity) t in transactions)
+            {
+                // Logic goes here to look up quantity and amount in each transaction
+                itemsSold += t.quantity;
+                revenue += (t.quantity * t.amount);
+            }
+
+            Console.WriteLine($@"
+                items sold today: {itemsSold}
+                total revenue: ${revenue}
+            ");
 
             Console.ReadLine();
         }
