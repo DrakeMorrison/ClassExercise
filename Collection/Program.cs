@@ -157,7 +157,7 @@ namespace Collection
             }
         }
 
-        static void Main()
+        public void TupleTransactions()
         {
             var transactions = new List<(string, double, int)>();
 
@@ -183,6 +183,42 @@ namespace Collection
             ");
 
             Console.ReadLine();
+        }
+
+        static void Main() // Stock Purchase Dictionaries
+        {
+            var stocks = new Dictionary<string, string>();
+            stocks.Add("GM", "General Motors");
+            stocks.Add("CAT", "Caterpillar");
+            stocks.Add("AAPL", "Apple");
+            stocks.Add("GE", "General Electric");
+
+            List<(string ticker, int shares, double price)> purchases = new List<(string, int, double)>();
+
+            purchases.Add((ticker: "GE", shares: 150, price: 23.21));
+            purchases.Add((ticker: "GE", shares: 32, price: 17.87));
+            purchases.Add((ticker: "GE", shares: 80, price: 19.02));
+            purchases.Add((ticker: "CAT", shares: 10, price: 23.21));
+            purchases.Add((ticker: "AAPL", shares: 122, price: 17.87));
+            purchases.Add((ticker: "GM", shares: 48, price: 19.02));
+
+            var report = new Dictionary<string, double>();
+
+            // Iterate over the purchases and update the valuation for each stock
+            foreach ((string ticker, int shares, double price) purchase in purchases)
+            {
+                var newValuation = purchase.shares * purchase.price;
+                var purchaseKey = stocks[purchase.ticker];
+                // Does the company name key already exist in the report dictionary?
+                if (report.ContainsKey(purchaseKey))
+                {                // If it does, update the total valuation
+                    report[purchaseKey] += newValuation;
+                }
+                else                // If not, add the new key and set its value
+                {
+                    report.Add(purchaseKey, newValuation);
+                }
+            }
         }
     }
 }
