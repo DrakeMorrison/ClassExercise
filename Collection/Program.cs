@@ -102,8 +102,10 @@ namespace Collection
         }
 
         public void HashSets()
-        {
+        { // make hashset for showroom
             var showRoom = new HashSet<string>();
+
+            // add cars to showroom
 
             showRoom.Add("Tesla");
             showRoom.Add("Prius");
@@ -112,9 +114,11 @@ namespace Collection
 
             Console.WriteLine($"There are {showRoom.Count} cars in the showroom.");
 
-            showRoom.Add("Corvette");
+            showRoom.Add("Corvette"); // attempt to add duplicate in HashSet to demonstrate futility.
 
             Console.WriteLine($"There are {showRoom.Count} cars in the showroom.");
+
+            // make new HashSet of cars
 
             var usedLot = new HashSet<string>()
             {
@@ -122,18 +126,21 @@ namespace Collection
                 "SmartCar"
             };
 
+            // add usedLot to showRoom and remove one car
+
             showRoom.UnionWith(usedLot);
             showRoom.Remove("SmartCar");
+
+            // make new HashSet of cars
 
             var junkyard = new HashSet<string>()
             {
                 "Porsche",
-                "Prius",
+                "Prius", // duplicate in showroom
                 "Jaguar",
                 "Audi v8"
             };
 
-            showRoom.IntersectWith(junkyard);
             showRoom.UnionWith(junkyard);
 
             foreach (string showCar in showRoom)
@@ -158,8 +165,10 @@ namespace Collection
         }
 
         public void TupleTransactions()
-        {
+        { // make list for transactions
             var transactions = new List<(string, double, int)>();
+
+            // add transactions
 
             transactions.Add(("product1", 10.23, 3));
             transactions.Add(("product2", 11.50, 2));
@@ -172,8 +181,9 @@ namespace Collection
 
             foreach ((string product, double amount, int quantity) t in transactions)
             {
-                // Logic goes here to look up quantity and amount in each transaction
+                // add up items sold
                 itemsSold += t.quantity;
+                // add up revenue of items
                 revenue += (t.quantity * t.amount);
             }
 
@@ -186,14 +196,18 @@ namespace Collection
         }
 
         static void Main() // Stock Purchase Dictionaries
-        {
+        { // set up stock dictionary
             var stocks = new Dictionary<string, string>();
             stocks.Add("GM", "General Motors");
             stocks.Add("CAT", "Caterpillar");
             stocks.Add("AAPL", "Apple");
             stocks.Add("GE", "General Electric");
 
+            // make new dictionary for purchases
+
             List<(string ticker, int shares, double price)> purchases = new List<(string, int, double)>();
+
+            // add purchases
 
             purchases.Add((ticker: "GE", shares: 150, price: 23.21));
             purchases.Add((ticker: "GE", shares: 32, price: 17.87));
@@ -201,6 +215,8 @@ namespace Collection
             purchases.Add((ticker: "CAT", shares: 10, price: 23.21));
             purchases.Add((ticker: "AAPL", shares: 122, price: 17.87));
             purchases.Add((ticker: "GM", shares: 48, price: 19.02));
+
+            // make dictionary for report
 
             var report = new Dictionary<string, double>();
 
