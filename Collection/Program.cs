@@ -5,7 +5,6 @@ namespace Collection
 {
     class Program
     {
-
         void SquaredRandoms(string[] args)
         {
             var random = new Random();

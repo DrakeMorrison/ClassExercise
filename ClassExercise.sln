@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoMinifigures", "LegoMini
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection", "Collection\Collection.csproj", "{A1D2961C-C020-40C9-9791-FBB8DC9AC771}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID Interfaces", "SOLID Interfaces\SOLID Interfaces.csproj", "{78299439-4330-4595-88EF-FD49B2A9A67B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A1D2961C-C020-40C9-9791-FBB8DC9AC771}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1D2961C-C020-40C9-9791-FBB8DC9AC771}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1D2961C-C020-40C9-9791-FBB8DC9AC771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78299439-4330-4595-88EF-FD49B2A9A67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78299439-4330-4595-88EF-FD49B2A9A67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78299439-4330-4595-88EF-FD49B2A9A67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78299439-4330-4595-88EF-FD49B2A9A67B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
