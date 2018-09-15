@@ -12,17 +12,21 @@ namespace Bangazon_Orientation
 
     public abstract class Department
     {
-        protected string _name;
+        public string _name;
         protected string _supervisor;
         protected int _employee_count;
         protected double _budget;
 
-        public Department(string name, string supervisor, int employees)
+        private List<Employee> _employees = new List<Employee>();
+
+        public Department(string name, string supervisor, int numEmployees)
         {
             _name = name;
             _supervisor = supervisor;
-            _employee_count = employees;
+            _employee_count = numEmployees;
         }
+
+        internal List<Employee> Employees { get => _employees; set => _employees = value; }
 
         public abstract DateTime Meet(DateTime date);
 
@@ -30,6 +34,7 @@ namespace Bangazon_Orientation
         {
             return _budget = budget;
         }
+
     }
 
     public class HumanResources : Department
@@ -124,8 +129,8 @@ namespace Bangazon_Orientation
 
     class Employee : IHandicap
     {
-        protected string _firstName;
-        protected string _lastName;
+        public string _firstName;
+        public string _lastName;
 
         private List<string> _restaurants = new List<string>
         {
@@ -137,7 +142,7 @@ namespace Bangazon_Orientation
         public bool IsHandicapped { get; set; } = false;
         public string Handicap { get; set; } = "none";
 
-        Employee(string firstName, string lastName)
+        public Employee(string firstName, string lastName)
         {
             _firstName = firstName;
             _lastName = lastName;
@@ -204,9 +209,29 @@ namespace Bangazon_Orientation
             var it = new InformationTechnology("IT", "Technowizard", 4);
             var marketing = new Marketing("Marketing", "Christi", 3);
 
+            var hrDude1 = new Employee("dude", "HRDude");
+            hrDude1.Handicap = "absolutely dumb";
+            hrDude1.IsHandicapped = true;
+            var hrDude2 = new Employee("dude", "HRDude");
+            var itDude1 = new Employee("dude", "ITDude");
+            itDude1.Handicap = "Brilliant";
+            itDude1.IsHandicapped = true;
+            var itDude2 = new Employee("dude", "ITDude");
+            var marketingDude1 = new Employee("dude", "MarketingDude");
+            var marketingDude2 = new Employee("dude", "MarketingDude");
+            marketingDude2.Handicap = "Not a good person";
+            marketingDude2.IsHandicapped = true;
+
             hr.AddPolicy("super hiring", "We will hire good people");
             it.changeStack(".NET Core");
             marketing.AddOrder("CHS", "500 CFA Biscuits");
+
+            hr.Employees.Add(hrDude1);
+            hr.Employees.Add(hrDude2);
+            it.Employees.Add(itDude1);
+            it.Employees.Add(itDude2);
+            marketing.Employees.Add(marketingDude1);
+            marketing.Employees.Add(marketingDude2);
 
             departments.Add(hr);
             departments.Add(it);
@@ -216,6 +241,24 @@ namespace Bangazon_Orientation
             {
                 d.SetBudget(baseBudget);
                 Console.WriteLine($"{d.ToString()}");
+            }
+
+            Console.ReadLine();
+
+            foreach (var d in departments)
+            {
+                Console.WriteLine($"Department: {d._name}");
+                foreach (var dude in d.Employees)
+                {
+                    if (dude.IsHandicapped)
+                    {
+                        Console.WriteLine($"    {dude._firstName} Handicap: {dude.Handicap}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"    {dude._firstName}");
+                    }                    
+                }
             }
 
             Console.ReadLine();
