@@ -19,6 +19,8 @@ namespace LINQExercises
                 Console.WriteLine(fruit);
             }
 
+            Console.ReadLine();
+
             // Which of the following numbers are multiples of 4 or 6
             var sampleNumbers = new List<int>()
             {
@@ -30,6 +32,8 @@ namespace LINQExercises
             {
                 Console.WriteLine(n);
             }
+
+            Console.ReadLine();
 
             // Order these student names alphabetically, in descending order (Z to A)
             var names = new List<string>()
@@ -48,6 +52,8 @@ namespace LINQExercises
                 Console.WriteLine(name);
             }
 
+            Console.ReadLine();
+
             // Build a collection of these numbers sorted in ascending order
             List<int> numbers = new List<int>()
                 {
@@ -60,6 +66,8 @@ namespace LINQExercises
                 Console.WriteLine(n);
             }
 
+            Console.ReadLine();
+
             // Output how many numbers are in this list
             List<int> numbers2 = new List<int>()
                 {
@@ -68,6 +76,8 @@ namespace LINQExercises
 
             Console.WriteLine(numbers2.Count());
 
+            Console.ReadLine();
+
             // How much money have we made?
             List<double> purchases = new List<double>()
                 {
@@ -75,6 +85,8 @@ namespace LINQExercises
                 };
 
             Console.WriteLine(purchases.Sum());
+
+            Console.ReadLine();
 
             // What is our most expensive product?
             List<double> prices = new List<double>()
@@ -94,6 +106,8 @@ namespace LINQExercises
             {
                 Console.WriteLine($"Non-square number: {number}");
             }
+
+            Console.ReadLine();
 
             // Build a collection of customers who are millionaires
             var customers = new List<Customer>() {
