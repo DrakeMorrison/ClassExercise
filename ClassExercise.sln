@@ -15,9 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegoMinifigures", "LegoMini
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collection", "Collection\Collection.csproj", "{A1D2961C-C020-40C9-9791-FBB8DC9AC771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bangazon Orientation", "Bangazon Orientation\Bangazon Orientation.csproj", "{092DEC75-F87B-4241-8F62-329A27A038CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bangazon Orientation", "Bangazon Orientation\Bangazon Orientation.csproj", "{092DEC75-F87B-4241-8F62-329A27A038CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQExercises", "LINQExercises\LINQExercises.csproj", "{1980682C-C94D-4CD6-BE34-A03D10B27889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralConverter.Test", "RomanNumeralConverter.Test\RomanNumeralConverter.Test.csproj", "{6F9BA435-867A-4BE5-9C70-FFE3B207064D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumeralConverter", "RomanNumeralConverter\RomanNumeralConverter.csproj", "{D4A2FB8A-0DE0-4354-A7F4-8887C6062CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{1980682C-C94D-4CD6-BE34-A03D10B27889}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1980682C-C94D-4CD6-BE34-A03D10B27889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1980682C-C94D-4CD6-BE34-A03D10B27889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9BA435-867A-4BE5-9C70-FFE3B207064D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9BA435-867A-4BE5-9C70-FFE3B207064D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9BA435-867A-4BE5-9C70-FFE3B207064D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9BA435-867A-4BE5-9C70-FFE3B207064D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A2FB8A-0DE0-4354-A7F4-8887C6062CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A2FB8A-0DE0-4354-A7F4-8887C6062CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A2FB8A-0DE0-4354-A7F4-8887C6062CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A2FB8A-0DE0-4354-A7F4-8887C6062CAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
