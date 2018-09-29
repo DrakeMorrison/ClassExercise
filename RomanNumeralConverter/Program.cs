@@ -6,6 +6,7 @@ namespace RomanNumeralConverter
 {
     public class Program
     {
+        // set up for Console App
         static void Main(string[] args)
         {
             Console.WriteLine("Give me a number, so I can make it a Roman Numeral");
@@ -60,17 +61,11 @@ namespace RomanNumeralConverter
         public List<RomanCharacter> RomanMapAscending = new List<RomanCharacter>()
         {
             new RomanCharacter('I', 1),
-            //new RomanCharacter('IV', 4 ),
             new RomanCharacter( 'V', 5 ),
-            //new RomanCharacter( 'IX', 9 ),
             new RomanCharacter( 'X', 10 ),
-            //new RomanCharacter( 'XL', 40 ),
             new RomanCharacter( 'L', 50 ),
-            //new RomanCharacter( 'XC', 90 ),
             new RomanCharacter( 'C', 100 ),
-            //new RomanCharacter( 'CD', 400 ),
             new RomanCharacter( 'D', 500 ),
-            //new RomanCharacter( 'CM', 900 ),
             new RomanCharacter( 'M', 1000 )
         };
 
@@ -98,16 +93,22 @@ namespace RomanNumeralConverter
             int howManyOfNumeral;
             int remainder;
 
+            // for each type of roman numeral
             for (var i = 0; i < RomanMapDescending.Count; i++)
             {
+                // number of times to multiply value of numeral. 
                 howManyOfNumeral = Math.Abs(numberToBuild / RomanMapDescending[i].Value);
+
+                // remainder for next numeral
                 remainder = numberToBuild % RomanMapDescending[i].Value;
 
+                // add numerals
                 for (int y = 0; y < howManyOfNumeral; y++)
                 {
                     output += RomanMapDescending[i].Numeral;
                 }
 
+                // setting the remainder to the next numberToBuild
                 numberToBuild = remainder;
             }
 
@@ -117,28 +118,43 @@ namespace RomanNumeralConverter
         public int RomanToInt(string input)
         {
             var romanNumberText = input;
+            // setting input to a List of roman numeral chars
             var romanNumbers = romanNumberText.ToCharArray().ToList();
             var output = 0;
 
+            // for each type of roman numeral
             for (int i = 0; i < RomanMapAscending.Count; i++)
-            {
-                //while (romanNumbers.Count != 0 && romanNumbers[romanNumbers.Count - 1] == RomanMapAscending[i].Numeral)
-                while (romanNumbers.Count != 0 && romanNumbers.Contains(RomanMapAscending[i].Numeral))
+            {                
+                var isRomanNumberLeft = romanNumbers.Count != 0;
+                var currentNumeral = RomanMapAscending[i].Numeral;
+                var hasNumeralInList = romanNumbers.Contains(currentNumeral);
+
+                while (isRomanNumberLeft && hasNumeralInList)
                 {
-                    if (romanNumbers[romanNumbers.Count - 1] == RomanMapAscending[i].Numeral)
+                    var lastCharIsNumeral = romanNumbers[romanNumbers.Count - 1] == currentNumeral;
+                    var currentNumeralValue = RomanMapAscending[i].Value;
+
+                    if (lastCharIsNumeral)
                     {
-                        output += RomanMapAscending[i].Value;
+                        // add value to output
+                        output += currentNumeralValue;
+
+                        // remove numeral from list
                         romanNumbers.RemoveAt(romanNumbers.Count - 1);
                     }
                     else
                     {
-                        output -= RomanMapAscending[i].Value;
-                        var indexor = romanNumbers.IndexOf(RomanMapAscending[i].Numeral);
+                        // remove numeral from list 
+                        var indexor = romanNumbers.IndexOf(currentNumeral);
+
                         romanNumbers.RemoveAt(indexor);
+
+                        // subtract value from output
+                        output -= currentNumeralValue;                                               
                     }
+                    hasNumeralInList = romanNumbers.Contains(currentNumeral);
                 }
             }
-
             return output;
         }
     }
