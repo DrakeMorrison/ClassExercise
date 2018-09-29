@@ -60,17 +60,17 @@ namespace RomanNumeralConverter
         public List<RomanCharacter> RomanMapAscending = new List<RomanCharacter>()
         {
             new RomanCharacter('I', 1),
-            new RomanCharacter('IV', 4 ),
+            //new RomanCharacter('IV', 4 ),
             new RomanCharacter( 'V', 5 ),
-            new RomanCharacter( 'IX', 9 ),
+            //new RomanCharacter( 'IX', 9 ),
             new RomanCharacter( 'X', 10 ),
-            new RomanCharacter( 'XL', 40 ),
+            //new RomanCharacter( 'XL', 40 ),
             new RomanCharacter( 'L', 50 ),
-            new RomanCharacter( 'XC', 90 ),
+            //new RomanCharacter( 'XC', 90 ),
             new RomanCharacter( 'C', 100 ),
-            new RomanCharacter( 'CD', 400 ),
+            //new RomanCharacter( 'CD', 400 ),
             new RomanCharacter( 'D', 500 ),
-            new RomanCharacter( 'CM', 900 ),
+            //new RomanCharacter( 'CM', 900 ),
             new RomanCharacter( 'M', 1000 )
         };
 
@@ -122,10 +122,20 @@ namespace RomanNumeralConverter
 
             for (int i = 0; i < RomanMapAscending.Count; i++)
             {
-                while (romanNumbers[romanNumbers.Count - 1] == RomanMapAscending[i].Numeral)
+                //while (romanNumbers.Count != 0 && romanNumbers[romanNumbers.Count - 1] == RomanMapAscending[i].Numeral)
+                while (romanNumbers.Count != 0 && romanNumbers.Contains(RomanMapAscending[i].Numeral))
                 {
-                    output += RomanMapAscending[i].Value;
-                    romanNumbers.RemoveAt(romanNumbers.Count - 1);
+                    if (romanNumbers[romanNumbers.Count - 1] == RomanMapAscending[i].Numeral)
+                    {
+                        output += RomanMapAscending[i].Value;
+                        romanNumbers.RemoveAt(romanNumbers.Count - 1);
+                    }
+                    else
+                    {
+                        output -= RomanMapAscending[i].Value;
+                        var indexor = romanNumbers.IndexOf(RomanMapAscending[i].Numeral);
+                        romanNumbers.RemoveAt(indexor);
+                    }
                 }
             }
 
